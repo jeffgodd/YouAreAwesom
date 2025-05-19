@@ -10,13 +10,12 @@ import SwiftUI
 struct ContentView: View {
     @State private var message = ""
     @State private var imageName = ""
-    @State private var isAwesome = false
     
     var body: some View {
         
         VStack {
             Spacer()
-                
+            
             Image(systemName: imageName)
                 .resizable()
                 .scaledToFit()
@@ -28,16 +27,19 @@ struct ContentView: View {
             
             Spacer()
             
-            HStack {
-                Button("Press Me!") {
-                    isAwesome.toggle()
-                    if isAwesome {
-                        message = "You Are Awesome!"
-                        imageName = "sun.max.fill"
-                    } else {
-                        message = "You Are Great!"
-                        imageName = "hand.thumbsup"
-                    }
+            
+            Button("Press Me!") {
+                let message1 = "You Are Awesome!"
+                let message2 = "You Are Great!"
+                let imageName1 = "sun.max.fill"
+                let imageName2 = "hand.thumbsup"
+
+                if message == message1 {
+                    message = message2
+                    imageName = imageName2
+                } else {
+                    message = message1
+                    imageName = imageName1
                 }
             }
             .buttonStyle(.borderedProminent)
@@ -46,11 +48,11 @@ struct ContentView: View {
             
         }
         .padding()
-         
+        
     }
 }
 
 #Preview {
     ContentView()
 }
- 
+
