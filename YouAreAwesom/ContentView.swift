@@ -50,20 +50,15 @@ struct ContentView: View {
                                 "Wonderful, That's you!",
                                 "You Are Handsome!"]
                 
-                var messageNumber: Int
-                messageNumber = nonRepeatingRandom(lastNumber: lastMessageNumber, upperBounds: messages.count)
-                lastMessageNumber = messageNumber
-                message = messages[messageNumber]
+ 
+                lastMessageNumber = nonRepeatingRandom(lastNumber: lastMessageNumber, upperBounds: messages.count)
+                message = messages[lastMessageNumber]
                 
-                var imageNumber: Int
-                imageNumber = nonRepeatingRandom(lastNumber: lastImageNumber, upperBounds: numberOfImages)
-                lastImageNumber = imageNumber
-                imageName = "image\(imageNumber)"
+                lastImageNumber = nonRepeatingRandom(lastNumber: lastImageNumber, upperBounds: numberOfImages)
+                imageName = "image\(lastImageNumber)"
                 
-                var soundNumber: Int
-                soundNumber = nonRepeatingRandom(lastNumber: lastSoundNumber, upperBounds: numberOfSounds)
-                lastSoundNumber = soundNumber
-                playSound(soundName: "sound\(soundNumber)")
+                lastSoundNumber = nonRepeatingRandom(lastNumber: lastSoundNumber, upperBounds: numberOfSounds)
+                playSound(soundName: "sound\(lastSoundNumber)")
                 
             }
             .buttonStyle(.borderedProminent)
